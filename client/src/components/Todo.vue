@@ -4,6 +4,8 @@
     <hr>
     <button type="button" class="btn btn-success btn-sm" v-b-modal.todo-modal>Add Todo</button>
             <br><br>
+    <alert :message=message v-if="showMessage"></alert>
+    <br>
     <div class="list-group">
       <div class="list-group-item todos-header">
         <div class="row">
@@ -59,6 +61,7 @@
 
 <script>
 import axios from 'axios';
+import Alert from './Alert';
 
 export default {
   name: 'Todo',
@@ -77,6 +80,9 @@ export default {
       showMessage: false,
 
     };
+  },
+  components: {
+    alert: Alert,
   },
   methods: {
     getTodos() {
@@ -192,21 +198,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 
 .todos-header{
     background-color: #111111;
